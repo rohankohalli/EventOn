@@ -18,8 +18,8 @@ const AppIcon = ({ size = 28, className = "" }) => (
   >
     <defs>
       <linearGradient id="eventon-core" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#6366f1" /> {/* Indigo 500 */}
-        <stop offset="100%" stopColor="#d946ef" /> {/* Fuchsia 500 */}
+        <stop offset="0%" stopColor="#10b981" /> {/* Emerald 500 */}
+        <stop offset="100%" stopColor="#0d9488" /> {/* Teal 600 */}
       </linearGradient>
     </defs>
     

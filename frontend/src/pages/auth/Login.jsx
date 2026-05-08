@@ -32,7 +32,7 @@ const Login = () => {
 
   return (
     <div className="min-h-screen w-full grid grid-cols-1 md:grid-cols-2">
-      <div className="hidden md:flex flex-col justify-center px-12 bg-linear-to-br from-blue-600 to-blue-500 text-white">
+      <div className="hidden md:flex flex-col justify-center px-12 bg-linear-to-br from-emerald-600 to-teal-600 text-white">
         <div className="-translate-y-8">
           <div className="mb-6"><AppIcon size={64} /></div>
           <h1 className="text-4xl font-bold mb-4">Welcome back</h1>
@@ -63,14 +63,14 @@ const Login = () => {
               </Button>
             </div>
 
-            <Button type="submit" className="bg-green-500 text-white py-2 rounded-lg font-semibold hover:bg-green-600
+            <Button type="submit" className="bg-emerald-600 text-white py-2 rounded-lg font-semibold hover:bg-emerald-700
                 transition duration-200 cursor-pointer" children="Login" />
             <p className="text-sm text-gray-500 mt-4 flex gap-5">
               Don't have an account?
-              <a href="/register" className="text-blue-600 hover:underline font-medium">
-                Register
+              <a href="/register" className="text-emerald-600 hover:underline font-medium">
+                Sign up
               </a>
-              <a href="" className="text-blue-600 hover:underline font-medium">
+              <a href="" className="text-emerald-600 hover:underline font-medium">
                 Reset password
               </a>
             </p>

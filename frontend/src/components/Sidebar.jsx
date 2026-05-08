@@ -8,7 +8,7 @@ const Sidebar = ({ subtitle, items, isPinned, isHovered, setIsHovered, onToggleP
 
     const linkClass = ({ isActive }) =>
         `flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition
-     ${isActive ? "bg-indigo-600 text-white" : "text-gray-700 hover:bg-gray-200 dark:text-gray-300 dark:hover:bg-gray-700"}`
+     ${isActive ? "bg-primary-600 text-white" : "text-gray-700 hover:bg-gray-200 dark:text-gray-300 dark:hover:bg-gray-700"}`
 
     return (
         <aside onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}
@@ -16,12 +16,12 @@ const Sidebar = ({ subtitle, items, isPinned, isHovered, setIsHovered, onToggleP
                 ${isExpanded ? "w-56" : "w-16"}`}>
             <div className={`px-4 py-4 border-b flex items-center ${isExpanded ? 'justify-between' : 'justify-center'} overflow-hidden`}>
                 <div className="flex items-center gap-2">
-                    <div className="text-indigo-600 shrink-0">
+                    <div className="text-primary-600 shrink-0">
                         <AppIcon size={isExpanded ? 24 : 28} />
                     </div>
                     {isExpanded && (
                         <div className="flex flex-col justify-center">
-                            <h1 className="text-lg font-bold text-indigo-600 leading-tight">
+                            <h1 className="text-lg font-bold text-primary-600 leading-tight">
                                 <Link to="/home">EventOn</Link>
                             </h1>
                             <p className="text-[10px] text-gray-500 dark:text-gray-600 leading-tight">{subtitle}</p>

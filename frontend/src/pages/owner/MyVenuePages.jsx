@@ -33,7 +33,7 @@ const MyVenuePages = () => {
                         <p className="text-sm">Capacity: {v.capacity}</p>
 
                         <div className="flex gap-4 mt-2 text-sm">
-                            <a href={`/venues/${v.id}/edit`} className="text-blue-600">Edit</a>
+                            <a href={`/venues/${v.id}/edit`} className="text-primary-600">Edit</a>
                             <a href={`/venues/${v.id}/events`} className="text-green-600">View Events</a>
                         </div>
                     </div>

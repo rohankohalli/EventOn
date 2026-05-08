@@ -42,10 +42,10 @@ export default function UserBox({ user }) {
                     <div className="border-b pb-3 mb-3">
                         <p className="font-semibold">{user?.name}</p>
                         <p className="text-sm text-gray-500">{user?.email}</p>
-                        <p className="text-sm mt-1 text-blue-600 font-semibold">{user?.role}</p>
+                        <p className="text-sm mt-1 text-primary-600 font-semibold">{user?.role}</p>
                     </div>
 
-                    <a href="/profile" className="block py-2 hover:text-blue-600">
+                    <a href="/profile" className="block py-2 hover:text-primary-600">
                         My Profile
                     </a>
 

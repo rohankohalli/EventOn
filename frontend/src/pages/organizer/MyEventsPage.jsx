@@ -32,7 +32,7 @@ export default function MyEventsPage() {
                         <p className="text-sm">{event.description}</p>
 
                         <div className="flex gap-4 mt-2 text-sm">
-                            <a href={`/my-event/${event.id}/edit`} className="text-blue-600">Edit</a>
+                            <a href={`/my-event/${event.id}/edit`} className="text-primary-600">Edit</a>
                             <a href={`/my-event/${event.id}/reservations`} className="text-green-600">
                                 Reservations
                             </a>

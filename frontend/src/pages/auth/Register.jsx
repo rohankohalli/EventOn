@@ -39,7 +39,7 @@ const Register = () => {
 
   return (
     <div className="min-h-screen w-full grid grid-cols-1 md:grid-cols-2">
-      <div className="hidden md:flex flex-col justify-center px-12 bg-linear-to-br from-blue-600 to-blue-500 text-white">
+      <div className="hidden md:flex flex-col justify-center px-12 bg-linear-to-br from-emerald-600 to-teal-600 text-white">
         <div className="-translate-y-9">
           <div className="flex items-center gap-3 mb-4">
              <AppIcon size={48} />
@@ -100,7 +100,7 @@ const Register = () => {
             transition duration-200 cursor-pointer" children="Register" />
             <p className="text-center text-sm text-gray-500 mt-4">
               Already have an account?{" "}
-              <a href="/login" className="text-blue-600 hover:underline font-medium">
+              <a href="/login" className="text-primary-600 hover:underline font-medium">
                 Login
               </a>
             </p>
