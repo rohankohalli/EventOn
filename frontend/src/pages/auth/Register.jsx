@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom"
 import Input from "../../components/Input"
 import { Eye, EyeOff } from "lucide-react"
 import Button from "../../components/Button"
+import AppIcon from "../../components/Icon"
 
 const Register = () => {
   const [form, setForm] = useState({ name: '', email: '', dateOfBirth: '', mobileNo: '', password: '', confirmPassword: '' })
@@ -40,7 +41,10 @@ const Register = () => {
     <div className="min-h-screen w-full grid grid-cols-1 md:grid-cols-2">
       <div className="hidden md:flex flex-col justify-center px-12 bg-linear-to-br from-blue-600 to-blue-500 text-white">
         <div className="-translate-y-9">
-          <h1 className="text-4xl font-bold mb-4">Event</h1>
+          <div className="flex items-center gap-3 mb-4">
+             <AppIcon size={48} />
+             <h1 className="text-4xl font-bold">EventOn</h1>
+          </div>
           <p className="text-lg opacity-90 max-w-sm">
             Create your account and start managing events effortlessly.
           </p>

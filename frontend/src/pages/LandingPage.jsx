@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import AppIcon from '../components/Icon';
 
 export default function LandingPage() {
   return (
@@ -9,7 +10,10 @@ export default function LandingPage() {
       <div className="absolute bottom-[-20%] left-[20%] w-96 h-96 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-4000"></div>
 
       <nav className="flex justify-between items-center px-8 py-4 backdrop-blur-md bg-white/40 border-b border-white/20 sticky top-0 z-50">
-        <h1 className="text-2xl font-bold tracking-tight text-gradient">EventOn</h1>
+        <div className="flex items-center gap-2 text-primary-600">
+          <AppIcon size={32} />
+          <h1 className="text-2xl font-bold tracking-tight text-gradient">EventOn</h1>
+        </div>
         <div className="flex gap-4 items-center">
           <a href="/login" className="text-gray-700 font-medium hover:text-black transition-colors">Log In</a>
           <a href="/register" className="px-5 py-2 bg-gray-900 text-white rounded-full font-medium hover:bg-black hover:scale-105 transition-all shadow-lg shadow-gray-900/20">Sign Up</a>

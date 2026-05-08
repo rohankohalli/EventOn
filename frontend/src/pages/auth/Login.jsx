@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom"
 import Input from '../../components/Input'
 import Button from '../../components/Button'
 import { EyeOff, Eye } from "lucide-react"
+import AppIcon from "../../components/Icon"
 
 const Login = () => {
   const [form, setForm] = useState({ email: '', password: '' })
@@ -33,6 +34,7 @@ const Login = () => {
     <div className="min-h-screen w-full grid grid-cols-1 md:grid-cols-2">
       <div className="hidden md:flex flex-col justify-center px-12 bg-linear-to-br from-blue-600 to-blue-500 text-white">
         <div className="-translate-y-8">
+          <div className="mb-6"><AppIcon size={64} /></div>
           <h1 className="text-4xl font-bold mb-4">Welcome back</h1>
           <p className="text-lg opacity-90 max-w-sm">
             Your events. Your venues. One platform — sign in to continue.
