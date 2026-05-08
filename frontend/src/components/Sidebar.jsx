@@ -17,7 +17,7 @@ const Sidebar = ({ subtitle, items, isPinned, isHovered, setIsHovered, onToggleP
                 {isExpanded && (
                     <div>
                         <h1 className="text-xl font-bold text-indigo-600">
-                            <Link to="/home">Occura</Link>
+                            <Link to="/home">EventOn</Link>
                         </h1>
                         <p className="text-xs text-gray-500 dark:text-gray-600">{subtitle}</p>
                     </div>

@@ -53,7 +53,7 @@ const OrganizerLayout = () => {
                 </main>
             </div>
             {/* <footer className="py-2 text-center text-gray-500">
-                © {new Date().getFullYear()} Occura
+                © {new Date().getFullYear()} EventOn
             </footer> */}
         </div>
     )

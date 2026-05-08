@@ -60,7 +60,7 @@ const Profile = () => {
       <div className="relative w-full max-w-md">
 
         <div className="absolute left-1/2 -top-4 -translate-x-1/2 z-20">
-          <div className="w-28 h-28 rounded-full border-4 border-gray-400 overflow-hidden bg-gray-100">
+          <div className="w-28 h-28 rounded-full border-4 border-gray-400 dark:border-gray-600 overflow-hidden bg-gray-100 dark:bg-gray-800">
             <img src={Avatars[user.avatar]} className="w-full h-full object-cover" />
           </div>
         </div>
@@ -68,11 +68,11 @@ const Profile = () => {
         <div className="flip-container mt-12">
           <div className={`flip-inner ${isEditing ? "flipped" : ""}`}>
 
-            <div className="flip-front bg-gray-100 shadow-lg rounded-xl p-6">
+            <div className="flip-front bg-gray-100 dark:bg-gray-800 shadow-lg rounded-xl p-6">
 
               <div className="flex justify-end">
-                <button onClick={() => setIsEditing(true)} className="p-2 rounded-full hover:bg-gray-300 transition cursor-pointer">
-                  <Pencil size={20} className="text-gray-700" />
+                <button onClick={() => setIsEditing(true)} className="p-2 rounded-full hover:bg-gray-300 dark:hover:bg-gray-700 transition cursor-pointer">
+                  <Pencil size={20} className="text-gray-700 dark:text-gray-300" />
                 </button>
               </div>
 
@@ -86,7 +86,7 @@ const Profile = () => {
               </div>
             </div>
 
-            <div className="flip-back bg-gray-100 shadow-lg rounded-xl pt-12 pb-4 px-6">
+            <div className="flip-back bg-gray-100 dark:bg-gray-800 shadow-lg rounded-xl pt-12 pb-4 px-6">
 
               <h2 className="text-xl font-semibold text-center mb-4 mt-0">Edit Profile</h2>
 

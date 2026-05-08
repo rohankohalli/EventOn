@@ -52,7 +52,7 @@ const UserLayout = () => {
                 </main>
             </div>
             {/* <footer className="py-6 text-center text-gray-500">
-                © {new Date().getFullYear()} Occura
+                © {new Date().getFullYear()} EventOn
             </footer> */}
         </div>
     )

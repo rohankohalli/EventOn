@@ -22,7 +22,7 @@ export default function EventsPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {events.map(event => (
-                    <div key={event.id} className="p-4 rounded-xl bg-white shadow">
+                    <div key={event.id} className="p-4 rounded-xl bg-white dark:bg-gray-800 shadow">
                         <h2 className="font-semibold">{event.title}</h2>
                         <p className="text-sm">{event.description}</p>
                         <a href={`/events/${event.id}`} className="text-blue-600 text-sm">

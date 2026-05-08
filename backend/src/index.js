@@ -35,7 +35,7 @@ app.use('/api', homeRoutes)
 app.use(errorHandler)
 try {
     await sequelize.authenticate()
-    await sequelize.sync()
+    await sequelize.sync({ force: true })
     console.log(`Connected to the database ${process.env.DB_NAME}`)
     app.listen(port, () => { console.log(`Server Running on port ${port}`) })
 } catch (error) {
