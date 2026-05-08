@@ -8,7 +8,7 @@ import DotLoader from "../components/Loader";
 export default function RoleBasedLayout() {
     const { user } = useAuth();
 
-    if (!user) return <div className="flex items-center justify-between"><DotLoader /></div>
+    if (!user) return <div className="flex min-h-screen items-center justify-center"><DotLoader /></div>
 
     switch (user.role) {
         case "Admin":

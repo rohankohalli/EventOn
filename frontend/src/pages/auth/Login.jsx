@@ -30,7 +30,7 @@ const Login = () => {
   }
 
   return (
-    <div className="h-full w-full grid grid-cols-1 md:grid-cols-2">
+    <div className="min-h-screen w-full grid grid-cols-1 md:grid-cols-2">
       <div className="hidden md:flex flex-col justify-center px-12 bg-linear-to-br from-blue-600 to-blue-500 text-white">
         <div className="-translate-y-8">
           <h1 className="text-4xl font-bold mb-4">Welcome back</h1>

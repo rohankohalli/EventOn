@@ -5,7 +5,7 @@ import DotLoader from "../components/Loader.jsx";
 export default function ProtectedRoute() {
     const { isAuthenticated, loading } = useAuth();
 
-    if (loading) return <div><DotLoader className="flex items-center justify-between"/></div>;
+    if (loading) return <div className="flex min-h-screen items-center justify-center"><DotLoader /></div>;
 
     return isAuthenticated ? <Outlet /> : <Navigate to="/login"/>;
 }

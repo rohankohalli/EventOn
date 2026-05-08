@@ -27,7 +27,7 @@ const Profile = () => {
     getUser();
   }, []);
 
-  if (!user) return <div className="p-6 flex items-center justify-between"><DotLoader /></div>;
+  if (!user) return <div className="p-6 flex items-center justify-center h-full"><DotLoader /></div>;
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
