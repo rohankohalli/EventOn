@@ -1,4 +1,4 @@
-import { LayoutGrid, Calendar, Plus, ClipboardList, Users, Building } from "lucide-react"
+import { LayoutGrid, Calendar, Plus, ClipboardList, Users, Building, FileText } from "lucide-react"
 
 export const userLinks = [
     // { label: "Dashboard", path: "/user", icon: LayoutGrid },
@@ -22,6 +22,7 @@ export const ownerLinks = [
 
 export const adminLinks = [
     { label: "Dashboard", path: "/admin", icon: LayoutGrid },
+    { label: "Applications", path: "/admin/applications", icon: FileText },
     { label: "Users", path: "/admin/users", icon: Users },
     { label: "Events", path: "/admin/events", icon: Calendar },
     // { label: "Venues", path: "/admin/venues", icon: Building },

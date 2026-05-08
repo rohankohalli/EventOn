@@ -17,6 +17,7 @@ import VenueEventsPage from "../pages/owner/VenueEventsPage";
 import AdminDashboardPage from "../pages/admin/AdminDashboardPage";
 import EventApproval from "../pages/admin/EventApproval";
 import AdminUsersPage from "../pages/admin/UsersPage";
+import RoleApplications from "../pages/admin/RoleApplications";
 import ProtectedRoute from "./ProtectedRoute";
 import LoggedInRoute from "./LoggedInRoute";
 import Unauthorized from "../pages/auth/Unauthorized"
@@ -82,6 +83,7 @@ const AppRoutes = () => {
                             <Route path="/admin" element={<AdminDashboardPage />} />
                             <Route path="/admin/events" element={<EventApproval />} />
                             <Route path="/admin/users" element={<AdminUsersPage />} />
+                            <Route path="/admin/applications" element={<RoleApplications />} />
                         </Route>
                     </Route>
 

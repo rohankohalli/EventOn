@@ -2,6 +2,7 @@ import Events from "./Events.js";
 import Users from "./Users.js";
 import Reservations from "./Reservations.js";
 import Venues from "./Venues.js";
+import RoleApplications from "./RoleApplications.js";
 
 // USER <> EVENT (Organizer relationship)
 Users.hasMany(Events, {
@@ -61,4 +62,13 @@ Reservations.belongsTo(Events, {
     foreignKey: "eventId",
 });
 
-export { Events, Users, Venues, Reservations };
+// USER <> ROLE APPLICATIONS
+Users.hasMany(RoleApplications, {
+    foreignKey: "userId",
+});
+
+RoleApplications.belongsTo(Users, {
+    foreignKey: "userId",
+});
+
+export { Events, Users, Venues, Reservations, RoleApplications };

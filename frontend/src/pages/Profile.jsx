@@ -4,6 +4,7 @@ import userApi from "../api/endpoints/users";
 import Input from "../components/Input";
 import Button from "../components/Button";
 import authApi from "../api/endpoints/auth";
+import applicationApi from "../api/endpoints/applications";
 import { Avatars } from '../constants/avatars'
 import DotLoader from "../components/Loader";
 
@@ -13,15 +14,24 @@ const Profile = () => {
   const [form, setForm] = useState({});
   const [showPassword, setShowPassword] = useState(false)
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
+  
+  const [myApplication, setMyApplication] = useState(null)
+  const [showAppModal, setShowAppModal] = useState(false)
+  const [appForm, setAppForm] = useState({ requestedRole: 'Organizer', businessName: '', details: '' })
+  const [appLoading, setAppLoading] = useState(false)
 
   useEffect(() => {
     const getUser = async () => {
       try {
-        const res = await authApi.me();
+        const [res, appRes] = await Promise.all([
+            authApi.me(),
+            applicationApi.getMyApplication()
+        ]);
         setUser(res.data.user);
         setForm(res.data.user);
+        setMyApplication(appRes.data.application);
       } catch (err) {
-        console.error("Error loading profile:", err);
+        console.error("Error loading profile data:", err);
       }
     };
     getUser();
@@ -51,6 +61,21 @@ const Profile = () => {
     } catch (err) {
       console.error(err);
       alert("Failed to update profile");
+    }
+  };
+
+  const handleApplyRole = async (e) => {
+    e.preventDefault();
+    setAppLoading(true);
+    try {
+        const res = await applicationApi.applyForRole(appForm);
+        setMyApplication(res.data.application);
+        setShowAppModal(false);
+    } catch (err) {
+        console.error("Application error:", err);
+        alert(err.response?.data?.message || "Failed to submit application");
+    } finally {
+        setAppLoading(false);
     }
   };
 
@@ -138,6 +163,97 @@ const Profile = () => {
           </div>
         </div>
       </div>
+
+      {/* Role Application Section */}
+      {user.role === "User" && (
+        <div className="mt-12 w-full max-w-md bg-white dark:bg-gray-800 shadow-lg rounded-xl p-6 border border-gray-200 dark:border-gray-700">
+          <h3 className="text-xl font-semibold mb-2">Grow with EventOn</h3>
+          
+          {myApplication ? (
+            <div className={`p-4 rounded-lg mt-4 ${
+              myApplication.status === "Pending" ? "bg-yellow-50 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-200 border border-yellow-200 dark:border-yellow-800" :
+              myApplication.status === "Approved" ? "bg-green-50 text-green-800 dark:bg-green-900/30 dark:text-green-200 border border-green-200 dark:border-green-800" :
+              "bg-red-50 text-red-800 dark:bg-red-900/30 dark:text-red-200 border border-red-200 dark:border-red-800"
+            }`}>
+              <p className="font-medium">Application Status: {myApplication.status}</p>
+              <p className="text-sm mt-1">Requested Role: {myApplication.requestedRole}</p>
+            </div>
+          ) : (
+            <>
+              <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
+                Want to host events or list your venue? Apply for a professional role.
+              </p>
+              <Button 
+                onClick={() => setShowAppModal(true)}
+                className="w-full bg-primary-600 text-white py-2 rounded-lg hover:bg-primary-700 transition"
+              >
+                Apply for a Role
+              </Button>
+            </>
+          )}
+        </div>
+      )}
+
+      {/* Application Modal */}
+      {showAppModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
+          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-2xl p-6 w-full max-w-md animate-in fade-in zoom-in-95 duration-200">
+            <h2 className="text-2xl font-bold mb-4">Apply for a Role</h2>
+            <form onSubmit={handleApplyRole} className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium mb-1">Select Role</label>
+                <select 
+                  className="w-full border border-gray-300 dark:border-gray-600 bg-transparent rounded-lg px-4 py-2 focus:outline-none"
+                  value={appForm.requestedRole}
+                  onChange={(e) => setAppForm({...appForm, requestedRole: e.target.value})}
+                  required
+                >
+                  <option value="Organizer">Event Organizer</option>
+                  <option value="VenueOwner">Venue Owner</option>
+                </select>
+              </div>
+              
+              <Input 
+                name="businessName" 
+                label="Company / Business Name" 
+                placeholder="e.g. Acme Events"
+                value={appForm.businessName}
+                onChange={(e) => setAppForm({...appForm, businessName: e.target.value})}
+                required
+              />
+              
+              <div>
+                <label className="block text-sm font-medium mb-1">Details & Experience</label>
+                <textarea 
+                  className="w-full border border-gray-300 dark:border-gray-600 bg-transparent rounded-lg px-4 py-2 focus:outline-none min-h-[100px]"
+                  placeholder="Tell us about your experience or your venue..."
+                  value={appForm.details}
+                  onChange={(e) => setAppForm({...appForm, details: e.target.value})}
+                  required
+                />
+              </div>
+
+              <div className="flex gap-3 pt-2">
+                <Button 
+                  type="button"
+                  onClick={() => setShowAppModal(false)}
+                  className="flex-1 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 py-2 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition"
+                >
+                  Cancel
+                </Button>
+                <Button 
+                  type="submit"
+                  disabled={appLoading}
+                  className="flex-1 bg-primary-600 text-white py-2 rounded-lg hover:bg-primary-700 transition disabled:opacity-50"
+                >
+                  {appLoading ? 'Submitting...' : 'Submit Application'}
+                </Button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
     </div>
   );
 }
