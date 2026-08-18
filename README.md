@@ -1,10 +1,10 @@
-# EventOn (formerly Eventora)
+# EventOn
 
 > Unlocking the Experience. 
 
-EventOn is an ultra-premium, full-stack event management platform designed to seamlessly connect three key roles: **Users** (attendees), **Organizers** (creators), and **Venue Owners** (hosts). 
+EventOn is an full-stack event management platform designed to seamlessly connect three key roles: **Users** (attendees), **Organizers** (creators), and **Venue Owners** (hosts). 
 
-Built with a focus on world-class UI/UX, EventOn features a mathematically perfect 3D isometric design language, stunning glassmorphism layouts, and smooth micro-animations. It's not just an app; it's a dynamic stage for your experiences.
+EventOn glassmorphism layouts, and smooth micro-animations. It's not just an app; it's a dynamic stage for your experiences.
 
 ---
 
@@ -31,7 +31,6 @@ EventOn is built to be blazing fast, type-safe, and visually stunning across all
 ## ✨ Features
 
 - **Role-Based Architecture:** Dedicated, authenticated layouts and dashboards for `Admin`, `Organizer`, `Owner`, and `User`.
-- **Ultra-Premium Visual Identity:** Custom 3D isometric SVG iconography, dynamic glowing mesh backgrounds, and floating glass-panel UI.
 - **Flawless Dark/Light Mode:** Global theme context that automatically adapts gradients, text, and component contrast.
 - **Smart Loading States:** Perfectly centered, non-blocking dot-loaders ensuring a smooth user experience during API fetches.
 - **Secure Authentication Flow:** Cookie/JWT-based session management with protected routes for authenticated access.
@@ -59,10 +58,5 @@ npm run dev
 ```
 
 ---
-
-## 🎨 The "Unlocking the Experience" Logo
-EventOn's logo is a custom, mathematically-perfect 3D isometric structure. 
-- **Left Wall:** Venue Owners (The Foundation)
-- **Right Wall:** Organizers (The Structure)
 - **Floating Lid:** Users (Access & Discovery)
 - **Glowing Core:** The Event itself—radiating from the exact point where all three converge.
