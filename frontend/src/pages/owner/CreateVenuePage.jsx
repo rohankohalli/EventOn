@@ -43,7 +43,7 @@ const CreateVenuePage = () => {
                     <label className="flex items-center space-x-2 cursor-pointer">
                         <span>Available</span>
 
-                        <div onClick={() => handleToggle(!venue.availability)}
+                        <div onClick={() => handleToggle(!form.availability)}
                             className={`relative w-12 h-7 rounded-full transition cursor-pointer
                         ${form.availability ? "bg-primary-600" : "bg-gray-300"}`}>
 

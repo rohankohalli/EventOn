@@ -20,7 +20,7 @@ axiosClient.interceptors.response.use(
             originalrequest._retry = true;
 
             try {
-                const res = await authApi.refresh();
+                const res = await axios.post(`${axiosClient.defaults.baseURL}/auth/refresh`, {}, { withCredentials: true });
                 const newAccessToken = res.data.accessToken;
 
                 localStorage.setItem("accessToken", newAccessToken);

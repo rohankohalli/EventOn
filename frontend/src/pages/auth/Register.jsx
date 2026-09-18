@@ -26,7 +26,8 @@ const Register = () => {
       return setError("Passwords do not match")
     }
 
-    const { confirmPassword, ...payload } = form
+    const payload = { ...form }
+    delete payload.confirmPassword
     try {
       const result = await register(payload)
       if (result.success) {

@@ -11,6 +11,7 @@ import reservationRoutes from './routes/reservationRoutes.js'
 import { errorHandler } from './middleware/errorHandler.js'
 import userRoutes from './routes/userRoutes.js'
 import homeRoutes from './routes/homeRoutes.js'
+import roleApplicationRoutes from './routes/roleApplicationRoutes.js'
 
 const port = process.env.PORT || 8000
 
@@ -30,6 +31,7 @@ app.use('/api/venues', venueRoutes)
 app.use('/api/events', eventRoutes)
 app.use('/api/reservation', reservationRoutes)
 app.use('/api/users', userRoutes)
+app.use('/api/applications', roleApplicationRoutes)
 app.use('/api', homeRoutes)
 
 app.use(errorHandler)

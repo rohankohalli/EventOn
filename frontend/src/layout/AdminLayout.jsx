@@ -21,7 +21,7 @@ const AdminLayout = () => {
         setTheme(value)
         try {
             await updatePreferences({ theme: value })
-        } catch (error) {
+        } catch {
             setTheme("system")
         }
     }

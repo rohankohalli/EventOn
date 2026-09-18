@@ -35,7 +35,7 @@ const EditVenuePage = () => {
             await venuesApi.update(id, venue);
             alert("Venue updated!");
             window.location.href = "/venues";
-        } catch (err) {
+        } catch {
             alert("Failed to update venue");
         }
     };

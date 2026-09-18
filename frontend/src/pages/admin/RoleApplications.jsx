@@ -26,7 +26,7 @@ const RoleApplications = () => {
         try {
             await applicationApi.approveApplication(id);
             fetchApplications();
-        } catch (error) {
+        } catch {
             alert("Failed to approve application");
         }
     };
@@ -35,7 +35,7 @@ const RoleApplications = () => {
         try {
             await applicationApi.rejectApplication(id);
             fetchApplications();
-        } catch (error) {
+        } catch {
             alert("Failed to reject application");
         }
     };

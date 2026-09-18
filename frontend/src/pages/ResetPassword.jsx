@@ -3,6 +3,7 @@ import authApi from "../api/endpoints/auth";
 import Input from "../components/Input";
 import Button from "../components/Button";
 import { useState } from "react";
+import { Eye, EyeOff } from "lucide-react";
 
 const ResetPassword = () => {
     const [searchParams] = useSearchParams()
@@ -26,7 +27,7 @@ const ResetPassword = () => {
         if (password !== confirm) return setError("Passwords do not match");
 
         try {
-            await authApi.password_reset_req({token, newPassword: password})
+            await authApi.password_reset({ token, newPassword: password });
             navigate("/login?reset=success");
         } catch (err) {
             setError(err.response?.data?.message || "Something went wrong");

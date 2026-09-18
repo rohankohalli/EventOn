@@ -30,7 +30,7 @@ export default function EditEventPage() {
       await eventsApi.update(id, form);
       alert("Updated successfully");
       window.location.href = "my-events";
-    } catch (err) {
+    } catch {
       alert("Failed to update event");
     }
   };

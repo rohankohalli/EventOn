@@ -21,7 +21,7 @@ const OwnerLayout = () => {
         setTheme(value)
         try {
             await updatePreferences({ theme: value })
-        } catch (error) {
+        } catch {
             setTheme("system")
         }
     }

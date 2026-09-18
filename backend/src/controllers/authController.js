@@ -2,6 +2,8 @@ import Users from "../models/Users.js"
 import { generateAccessToken, generateRefreshToken } from "../utils/token.js";
 import jwt from 'jsonwebtoken'
 import bcrypt from 'bcrypt'
+import crypto from 'crypto'
+import { Op } from 'sequelize'
 
 export const register = async (req, res, next) => {
     const AVATARS = ["avatar_1", "avatar_2", "avatar_3", "avatar_4"]

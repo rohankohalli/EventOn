@@ -1,4 +1,5 @@
-import { createContext, useCallback, useContext, useEffect, useState } from "react"
+/* eslint-disable react-refresh/only-export-components */
+import { createContext, useContext, useEffect, useState } from "react"
 import authApi from "../api/endpoints/auth.js"
 import userApi from "../api/endpoints/users.js"
 
@@ -49,7 +50,8 @@ export function AuthProvider({ children }) {
     const logout = async() => {
         try {
             await authApi.logout()            
-        } catch (error) {    
+        } catch {
+            // ignore logout network errors
         }
         finally{
             localStorage.removeItem("accessToken")
@@ -81,7 +83,7 @@ export function AuthProvider({ children }) {
                 const me = await authApi.me()
                 setUser(me.data.user)
 
-            } catch (err) {
+            } catch {
                 localStorage.removeItem("accessToken")
                 setUser(null)
                 setAccessToken(null)

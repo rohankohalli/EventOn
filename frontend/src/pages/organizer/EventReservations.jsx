@@ -9,14 +9,14 @@ export default function EventReservationsPage() {
     useEffect(() => {
         const loadReservations = async () => {
             try {
-                const res = await reservationsApi.getAll();
+                const res = await reservationsApi.getByEvent(id);
                 setReservations(res.data);
             } catch (err) {
                 console.error("Error loading reservations:", err);
             }
         }
-        loadReservations();
-    }, [])
+        if (id) loadReservations();
+    }, [id])
 
     return (
         <div className="p-6 space-y-4">
