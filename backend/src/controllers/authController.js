@@ -54,10 +54,10 @@ export const login = async (req, res, next) => {
         await user.update({ refreshToken })
         res.cookie("refreshToken", refreshToken, {
             httpOnly: true,
-            sameSite: "lax",
+            sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
             maxAge: 7 * 24 * 3600 * 1000,
             path: "/",
-            secure: false
+            secure: process.env.NODE_ENV === "production"
         })
 
         res.json({
@@ -90,8 +90,8 @@ export const logout = async (req, res) => {
 
         res.clearCookie("refreshToken", {
             httpOnly: true,
-            sameSite: "lax",
-            secure: false,
+            sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+            secure: process.env.NODE_ENV === "production",
             path: "/",
         });
 
@@ -124,10 +124,10 @@ export const refreshAccessToken = async (req, res, next) => {
 
         res.cookie("refreshToken", newRefreshToken, {
             httpOnly: true,
-            sameSite: "lax",
+            sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
             maxAge: 7 * 24 * 3600 * 1000,
             path: "/",
-            secure: false
+            secure: process.env.NODE_ENV === "production"
         })
         res.json({ accessToken: newAccessToken })
     } catch (error) {
